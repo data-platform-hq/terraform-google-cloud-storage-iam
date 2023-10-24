@@ -1,6 +1,6 @@
 resource "google_storage_bucket_iam_member" "this" {
   for_each = {
-    for m in var.bucket_iam_config : "${m.member}-${m.role}" => m
+    for m in var.bucket_iam_config : "${m.bucket}-${m.role}" => m
   }
   bucket = each.value.bucket
   role   = each.value.role
